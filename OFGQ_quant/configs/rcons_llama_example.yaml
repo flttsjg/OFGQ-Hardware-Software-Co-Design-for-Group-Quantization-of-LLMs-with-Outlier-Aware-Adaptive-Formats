@@ -1,0 +1,21 @@
+model:
+  path: /absolute/path/to/your/llama-model
+  dtype: float16
+  device: cuda:0
+  trust_remote_code: false
+dataset:
+  path: /absolute/path/to/wikitext-train.parquet
+  text_column: text
+analysis:
+  layers: all
+  num_samples: 100
+  sequence_length: 2048
+  sample_mode: random
+  seed: 42
+  group_size: 64
+  num_bins: 80
+  rows_per_sample: 32
+  pair_samples: 1024
+  max_corpus_rows: 0
+  output_dir: outputs/rcons
+  output_prefix: null

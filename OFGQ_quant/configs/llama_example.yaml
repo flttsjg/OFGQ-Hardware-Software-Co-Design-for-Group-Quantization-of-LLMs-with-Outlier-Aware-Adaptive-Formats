@@ -1,0 +1,24 @@
+model:
+  path: /absolute/path/to/your/llama-model
+  dtype: float16
+  device_map: auto
+dataset:
+  calibration_path: /absolute/path/to/wikitext-calibration.parquet
+  evaluation_path: /absolute/path/to/wikitext-test.parquet
+  text_column: text
+quantization:
+  num_bits: 4
+  group_size: 64
+calibration:
+  num_samples: 50
+  sequence_length: 2048
+  output_json: outputs/best_formats.json
+  output_txt: outputs/best_formats.txt
+evaluation:
+  sequence_length: 2048
+  max_samples: null
+  metadata_path: outputs/best_formats.json
+runtime:
+  seed: 0
+  use_fast_tokenizer: false
+  attn_implementation: eager

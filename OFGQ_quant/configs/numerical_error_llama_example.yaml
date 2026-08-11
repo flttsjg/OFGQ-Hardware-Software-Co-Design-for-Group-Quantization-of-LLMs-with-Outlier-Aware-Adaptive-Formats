@@ -1,0 +1,22 @@
+model:
+  path: /absolute/path/to/your/llama-model
+  dtype: float16
+  device_map: auto
+dataset:
+  evaluation_path: /absolute/path/to/wikitext-test.parquet
+  text_column: text
+quantization:
+  num_bits: 4
+  group_size: 64
+numerical_error:
+  metadata_path: outputs/best_formats.json
+  layers:
+  - 1
+  - 16
+  - 32
+  num_samples: 1
+  sequence_length: 2048
+  output_dir: outputs/numerical_error
+runtime:
+  use_fast_tokenizer: false
+  attn_implementation: eager
