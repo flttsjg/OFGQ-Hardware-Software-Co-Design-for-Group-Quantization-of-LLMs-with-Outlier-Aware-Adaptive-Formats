@@ -1,4 +1,19 @@
 # OFGQ: Hardware-Software Co-Design for Outlier-Aware Format-Adaptive Group Quantization of LLMs
+## Overview
+
+OFGQ combines software-level format adaptation with a hardware architecture specifically designed for efficient mixed-format FP4 execution.
+
+At the software level, activation groups are quantized using one of three FP4 formats:
+
+- **E3M0**
+- **E2M1**
+- **E1M2**
+
+The format is selected at the **column-block level** through offline calibration. 
+
+At the hardware level, OFGQ maps the different FP4 formats to a **bit-serial computation paradigm**, allowing the hardware execution latency to adapt to the selected format while avoiding the datapath inefficiency of conventional bit-parallel designs.
+
+---
 
 ## Repository Structure
 
