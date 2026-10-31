@@ -34,15 +34,6 @@ At the hardware level, OFGQ maps the different FP4 formats to a **bit-serial com
 │   │   └── numerical_error_eval.py
 │   └── README.md
 │
-├── OFGQ_rtl/                   # SystemVerilog RTL
-│   ├── address_generator_ag.sv
-│   ├── bit_serial_term_generator.sv
-│   ├── bsg_group64.sv
-│   ├── ofgq_pe.sv
-│   ├── ofgq_cluster_4x16.sv
-│   ├── ofgq_array_4cluster_16x16.sv
-│   └── ag_bsg_top.sv
-│
 ├── OFGQ_sim/                   # Performance / energy simulator
 │   ├── main_ofgq.py
 │   ├── main_ant.py
@@ -56,12 +47,11 @@ At the hardware level, OFGQ maps the different FP4 formats to a **bit-serial com
 └── README.md
 ```
 
-The three main components can be used independently depending on the desired experiment.
+The two main components can be used independently depending on the desired experiment.
 
 | Component | Purpose |
 |---|---|
 | `OFGQ_quant` | Format calibration, FP4/INT4 quantization, PPL evaluation, and numerical analysis |
-| `OFGQ_rtl` | RTL implementation of the core OFGQ accelerator datapath |
 | `OFGQ_sim` | System-level performance and energy evaluation |
 
 ---
@@ -202,16 +192,6 @@ More details are provided in `OFGQ_quant/README.md`.
 
 ---
 
-## RTL Implementation
-
-The core hardware modules are provided in:
-
-```text
-OFGQ_rtl/
-```
-
----
-
 ## Performance and Energy Simulation
 
 The system-level simulator is located in:
@@ -237,7 +217,6 @@ The main experiments can be mapped to the repository as follows:
 | WikiText-2 PPL | `OFGQ_quant/scripts/evaluate_ppl.py` |
 | Column-block distribution consistency | `OFGQ_quant/analysis/compute_rcons.py` |
 | Numerical error analysis | `OFGQ_quant/analysis/numerical_error_eval.py` |
-| Accelerator RTL | `OFGQ_rtl/` |
 | Performance and energy evaluation | `OFGQ_sim/` |
 | Figures 15–18 | `OFGQ_sim/README.md` |
 | Table 13 | `OFGQ_sim/README.md` |
